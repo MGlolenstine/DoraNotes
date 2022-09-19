@@ -16,10 +16,9 @@ class NoteRepository(private val noteDao: NoteDao) {
         noteDao.delete(note)
     }
 
-    suspend fun searchByTitle(title:String){
-        noteDao.searchByTitle(title)
+    suspend fun searchByTitle(title:String): Note? {
+        return noteDao.searchByTitle(title)
     }
-
 
     suspend fun searchNoteById(id: Int?): Note?{
         return noteDao.searchById(id)

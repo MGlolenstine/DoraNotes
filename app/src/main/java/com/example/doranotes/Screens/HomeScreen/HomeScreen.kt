@@ -80,12 +80,12 @@ fun HomeScreen(viewModel: MainViewModel, navHostController: NavHostController) {
 
             if (l != null) {
                 LazyColumn {
-                    items(l) { Note ->
-                        NoteRow(height = height, note = Note, onClick = {
-                            viewModel.currentNote = Note.title
-                            navHostController.navigate("display_note/" + Note.Id)
+                    items(l) { note ->
+                        NoteRow(height = height, note = note, onClick = {
+                            viewModel.currentNote = note
+                            navHostController.navigate("display_note/" + note.Id)
                         }) {
-                            viewModel.delete(Note)
+                            viewModel.delete(note)
                         }
                     }
                 }
